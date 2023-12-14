@@ -1,6 +1,6 @@
 # Local .terraform directories
 **/.terraform/*
-**/create_instance/provider.tf
+**/01_create_instance/provider.tf
 
 # .tfstate files
 *.tfstate
@@ -34,8 +34,7 @@ override.tf.json
 .terraformrc
 terraform.rc
 
-# Ignore ssh keys
+# Ignore these files
 *.pub
 *.hcl
-debian*
-/home/debian/Terraform/create_instance/provider.tf
+provision_key

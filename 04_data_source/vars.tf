@@ -6,7 +6,7 @@ variable "AWS_REGION" {
 }
 
 variable "SECURITY_GROUPS" {
-  type = list(string)
+  type = list # if error replace list with list(string)
 
   default = ["cosmo-SG"]
 }

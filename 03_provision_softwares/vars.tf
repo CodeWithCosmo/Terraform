@@ -6,7 +6,7 @@ variable "AWS_REGION" {
 }
 
 variable "SECURITY_GROUPS" {
-  type = list(string)
+  type = list
 
   default = ["cosmo-SG"]
 }
@@ -20,11 +20,11 @@ variable "AMIS" {
 }
 
 variable "PATH_TO_PRIVATE_KEY" {
-  default = "debian"
+  default = "provision_key"
 }
 
 variable "PATH_TO_PUBLIC_KEY" {
-  default = "debian.pub"
+  default = "provision_key.pub"
 }
 variable "INSTANCE_USERNAME" {
   default = "cosmo"

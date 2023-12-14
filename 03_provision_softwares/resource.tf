@@ -1,17 +1,19 @@
 
-resource "aws_key_pair" "debian" {
-    key_name = "debian"
+resource "aws_key_pair" "provision_key" {
+    key_name = "provision_key"
     public_key = file(var.PATH_TO_PUBLIC_KEY)
 }
 
 resource "aws_instance" "linux" {
   ami           = lookup(var.AMIS, var.AWS_REGION)
   instance_type = "t2.micro"
-  key_name      = aws_key_pair.debian.key_name
+  key_name      = aws_key_pair.provision_key.key_name
 
   tags = {
     Name = "debianOS"
   }
+
+  security_groups = "${var.SECURITY_GROUPS}"
 
   provisioner "file" {
       source = "nginx.sh"
